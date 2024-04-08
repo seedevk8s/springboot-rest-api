@@ -2,6 +2,7 @@ package com.javaguides.springbootrestapi.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.javaguides.springbootrestapi.bean.Student;
@@ -48,6 +49,18 @@ public class StudentController {
                                         @PathVariable("first-name") String firstName,
                                         @PathVariable("last-name") String lastName) {
         return new Student(studentId, firstName, lastName);
+    }    
+
+    @GetMapping("students/query")
+    public Student studentRequestVariable(@RequestParam int id) {
+        return new Student(id, "hojin", "chu");
+    }
+
+    @GetMapping("students2/query")
+    public Student studentRequestVariable2(@RequestParam int id,
+                                            @RequestParam String firstName,
+                                            @RequestParam String lastName) {
+        return new Student(id, firstName, lastName);
     }    
 
 }
