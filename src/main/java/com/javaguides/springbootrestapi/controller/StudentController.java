@@ -151,7 +151,6 @@ public class StudentController {
         return ResponseEntity.ok(student);
     } 
 
-    
     @PostMapping("students3/create")
     //@ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Student> createStudent3(@RequestBody Student student) {
